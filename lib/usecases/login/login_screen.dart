@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
             onPressed: () {
               context.go('${AppScreen.path}${HomeScreen.path}');
             },
-            child: Text('login')),
+            child: const Text('login')),
       ),
     );
   }

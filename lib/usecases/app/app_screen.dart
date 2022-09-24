@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:wine/common/extensions.dart';
-import 'package:wine/common/spacing.dart';
-import 'package:wine/common/widgets.dart';
+import 'package:wine/common/common.dart';
 import 'package:wine/usecases/usescases.dart';
 
 class AppScreen extends StatefulWidget {
@@ -65,8 +63,8 @@ class _AppScreenState extends State<AppScreen> {
 
   List<BottomNavigationBarItem> get items => [
         BottomNavigationBarItem(
-          label: 'a',
-          icon: Padding(
+          label: 'Start',
+          icon: Container(
             padding: padding,
             child: const Icon(
               Icons.account_balance_outlined,
@@ -75,8 +73,8 @@ class _AppScreenState extends State<AppScreen> {
           ),
         ),
         BottomNavigationBarItem(
-          label: 'b',
-          icon: Padding(
+          label: 'Events',
+          icon: Container(
             padding: padding,
             child: const Icon(
               Icons.map,
@@ -85,8 +83,8 @@ class _AppScreenState extends State<AppScreen> {
           ),
         ),
         BottomNavigationBarItem(
-          label: 'c',
-          icon: Padding(
+          label: 'Weine',
+          icon: Container(
             padding: padding,
             child: const Icon(
               Icons.add_shopping_cart,
@@ -95,11 +93,11 @@ class _AppScreenState extends State<AppScreen> {
           ),
         ),
         BottomNavigationBarItem(
-          label: 'd',
-          icon: Padding(
+          label: 'Mehr',
+          icon: Container(
             padding: padding,
             child: const Icon(
-              Icons.account_circle_outlined,
+              Icons.read_more_outlined,
               size: Spacing.M,
             ),
           ),

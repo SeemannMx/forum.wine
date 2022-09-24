@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder(
+    return const Placeholder(
       color: Colors.amber,
     );
   }
