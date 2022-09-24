@@ -7,7 +7,7 @@ class Spacing {
   static const double S = 16.0;
   static const double M = 24.0;
   static const double L = 32.0;
-  static const double XL = 40.0;
+  static const double XL = 48.0;
   static const double XXL = 64.0;
   static const double MAX = 96.0;
 }

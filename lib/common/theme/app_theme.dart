@@ -17,6 +17,16 @@ class AppTheme {
       iconTheme: _iconTheme,
       bottomNavigationBarTheme: _bottomNavigationBarTheme,
       cardTheme: _cardTheme,
+      dividerTheme: _dividerTheme,
+    );
+  }
+
+  static DividerThemeData get _dividerTheme {
+    return const DividerThemeData(
+      color: AppColors.secondary,
+      thickness: .1,
+      indent: Spacing.S,
+      endIndent: Spacing.S,
     );
   }
 
@@ -38,7 +48,7 @@ class AppTheme {
 
   static CardTheme get _cardTheme {
     return const CardTheme(
-      color: AppColors.backgroundCard,
+      color: AppColors.backgroundCardDark,
     );
   }
 
@@ -85,7 +95,7 @@ class AppTheme {
   static ElevatedButtonThemeData get _elevatedButtonTheme {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        fixedSize: const Size(double.infinity, Spacing.XL),
+        fixedSize: const Size(double.maxFinite, Spacing.XL),
         primary: AppColors.primary,
         onPrimary: AppColors.text,
         textStyle: _textTheme.button,

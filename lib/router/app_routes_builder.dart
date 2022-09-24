@@ -15,12 +15,17 @@ class AppRoutesBuilder {
         },
         routes: [
           GoRoute(
-            path: ':bottomBarItemName',
-            builder: (context, state) {
-              final bottomBarItemName = state.params['bottomBarItemName']!;
-              return AppScreen(bottomBarItemName: bottomBarItemName);
-            },
-          ),
+              path: ':bottomBarItemName',
+              builder: (context, state) {
+                final bottomBarItemName = state.params['bottomBarItemName']!;
+                return AppScreen(bottomBarItemName: bottomBarItemName);
+              },
+              routes: [
+                GoRoute(
+                  path: WinzerScreen.path,
+                  builder: (context, state) => const WinzerScreen(),
+                ),
+              ]),
         ],
       ),
     ];
