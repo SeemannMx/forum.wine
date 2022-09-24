@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // Although --dart-define is automatically set by --flavor argument, 
+    // we need to specify it again, to not loose the stage information on hot reload.
+    "version": "0.0.1",
+    "configurations": [
+        {
+            "name": "Build",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                // "--flavor=${input:stage}",
+                "--dart-define=app.stage=${input:stage}",
+            ],
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "Attach",
+            "request": "attach",
+            "type": "dart",
+            "args": [
+                "--dart-define=app.stage=${input:stage}",
+            ],
+            "program": "lib/main.dart"
+        },
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "stage",
+            "description": "Choose flavor!",
+            "options": [
+                "dev",
+                "prod",
+                
+            ],
+            "default": "dev",
+        },
+    ]
+}

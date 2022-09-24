@@ -1,0 +1,17 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - lib/**/generated/*
+    - lib/**/*.g.dart
+    - test/**/*.mocks.dart
+
+  errors:
+    invalid_annotation_target: ignore
+
+linter:
+
+  rules:
+    avoid_print: true
+    prefer_single_quotes: true  
+    lines_longer_than_80_chars: false
