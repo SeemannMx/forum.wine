@@ -12,14 +12,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const height = 0.3;
+    const height = 0.275;
 
     return SingleChildScrollView(
       child: Column(
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height * height,
+          InkWell(
+            onTap: () {
+              context.go('${AppScreen.path}${HomeScreen.path}/${SpecialsScreen.path}');
+            },
             child: Container(
+              height: MediaQuery.of(context).size.height * height,
               margin: const EdgeInsets.all(Spacing.S),
               decoration: BoxDecoration(
                   border: Border.all(
@@ -34,14 +37,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Center(
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'SPECIALS  ',
-                      style: TextStyle(
-                        fontSize: AppTheme.data().textTheme.headline1!.fontSize,
-                        color: AppColors.primary,
-                      ),
+                  child: Text(
+                    'SPECIALS  ',
+                    style: TextStyle(
+                      fontSize: AppTheme.data().textTheme.headline1!.fontSize,
+                      color: AppColors.primary,
                     ),
                   ),
                 ),
@@ -88,7 +88,9 @@ class HomeScreen extends StatelessWidget {
                           child: Card(
                             elevation: 1,
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                context.go('${AppScreen.path}${HomeScreen.path}/${PremiumScreen.path}');
+                              },
                               child: Container(
                                 child: Center(
                                   child: Text(
@@ -109,11 +111,13 @@ class HomeScreen extends StatelessWidget {
                           child: Card(
                             elevation: 1,
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                context.go('${AppScreen.path}${HomeScreen.path}/${WikiScreen.path}');
+                              },
                               child: Container(
                                 child: Center(
                                   child: Text(
-                                    'Sekt',
+                                    'Wiki',
                                     style: TextStyle(
                                       fontSize: AppTheme.data().textTheme.headline2!.fontSize,
                                       color: AppColors.text,
@@ -133,13 +137,12 @@ class HomeScreen extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.all(Spacing.S),
-            // height: MediaQuery.of(context).size.height * 0.2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   dummyText,
-                  maxLines: 2,
+                  maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: AppTheme.data().textTheme.bodyText1,
                 ),
@@ -165,26 +168,120 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.push('${AppScreen.path}${HomeScreen.path}/${CameraScreen.path}');
+                    },
                   ),
                 ),
                 Text(
                   dummyText,
-                  maxLines: 3,
+                  maxLines: 4,
                   overflow: TextOverflow.fade,
                   style: AppTheme.data().textTheme.bodyText1,
                 ),
               ],
             ),
           ),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.310,
-            child: Card(
-              margin: EdgeInsets.all(Spacing.S),
-              child: Container(),
+          ...[
+            ArticleCard(
+              imagePath: homeArticleBar,
+              title: 'Das "Cuvée" die hippe Vinothek in Speyer',
+              subTitle: dummyText,
+              onArticle: () {},
             ),
-          ),
-        ].withSpace(Spacing.MIN),
+            ArticleCard(
+              imagePath: homeArticleBottles,
+              title: 'Die Geschichte der Weinflasche',
+              subTitle: 'Von der Tokayerflasche bis zum Bocksbeutel ...',
+              onArticle: () {},
+            ),
+            ArticleCard(
+              imagePath: homeArticleCellar,
+              title: 'Wie öffnen die Schatzkammer',
+              subTitle: dummyText,
+              onArticle: () {},
+            ),
+            ArticleCard(
+              imagePath: homeArticleGrapes,
+              title: 'Die bekannteste Rebsorte ist ...',
+              subTitle: dummyText,
+              onArticle: () {},
+            ),
+            const SizedBox(height: Spacing.S)
+          ].withSpace(Spacing.S),
+        ],
+      ),
+    );
+  }
+}
+
+class ArticleCard extends StatelessWidget {
+  final String title;
+  final String subTitle;
+  final String imagePath;
+  final VoidCallback onArticle;
+
+  const ArticleCard({
+    Key? key,
+    required this.imagePath,
+    required this.title,
+    required this.subTitle,
+    required this.onArticle,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onArticle,
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(Spacing.XS)),
+            border: Border.all(
+              color: AppColors.backgroundCardLight,
+            )),
+        margin: const EdgeInsets.symmetric(horizontal: Spacing.S),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(Spacing.XS)),
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.fill,
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(Spacing.S),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      title,
+                      maxLines: 1,
+                      style: TextStyle(
+                        fontSize: AppTheme.data().textTheme.headline2!.fontSize,
+                        color: AppColors.primary,
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      subTitle,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: AppTheme.data().textTheme.headline3!.fontSize,
+                        color: AppColors.primary.withAlpha(100),
+                      ),
+                    ),
+                  ),
+                ].withSpace(Spacing.XS),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

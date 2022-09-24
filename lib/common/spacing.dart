@@ -3,6 +3,7 @@
 class Spacing {
   static const double ZERO = 0;
   static const double MIN = 2.0;
+  static const double SLIM = 4.0;
   static const double XS = 8.0;
   static const double S = 16.0;
   static const double M = 24.0;

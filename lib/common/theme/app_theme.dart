@@ -87,7 +87,7 @@ class AppTheme {
         fontSize: FontSize.MIN,
         color: AppColors.unselected,
       ),
-      backgroundColor: AppColors.backgroundCardDark,
+      backgroundColor: AppColors.backgroundLight,
       type: BottomNavigationBarType.fixed,
     );
   }
