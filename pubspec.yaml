@@ -18,6 +18,8 @@ dependencies:
   json_annotation: ^4.7.0
   flutter_native_splash: ^2.2.9
   webview_flutter: ^3.0.4
+  device_info_plus: ^4.1.2
+  camera: ^0.10.0+1
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +39,8 @@ flutter:
     - assets/images/grapes.png
     - assets/images/bottles.png
     - assets/images/bar.png
+    - assets/images/dummy_bottle.png
+
   
   
   

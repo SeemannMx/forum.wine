@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wine/common/common.dart';
+import 'package:wine/usecases/usescases.dart';
 
-class AppWebView extends StatelessWidget {
-  final String url;
-  final VoidCallback onBack;
-
-  const AppWebView({Key? key, required this.url, required this.onBack}) : super(key: key);
+class AppErrorScreen extends StatelessWidget {
+  const AppErrorScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: WebView(initialUrl: url),
+      body: const Center(
+        child: Text('error'),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: Container(
         margin: const EdgeInsets.all(Spacing.S),
@@ -22,7 +22,7 @@ class AppWebView extends StatelessWidget {
               Spacing.XL,
             ),
           ),
-          onPressed: onBack,
+          onPressed: () => context.go('${AppScreen.path}${HomeScreen.path}'),
           child: const Text('zurück'),
         ),
       ),

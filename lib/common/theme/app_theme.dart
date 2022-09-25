@@ -25,8 +25,6 @@ class AppTheme {
     return const DividerThemeData(
       color: AppColors.secondary,
       thickness: .1,
-      indent: Spacing.S,
-      endIndent: Spacing.S,
     );
   }
 
