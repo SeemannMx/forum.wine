@@ -22,10 +22,3 @@ Future<void> get _binding async {
 void _onError(String description, {FlutterErrorDetails? details, Object? error, StackTrace? stackTrace}) {
   log('$description $details', name: 'main', error: error, stackTrace: stackTrace);
 }
-
-// DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-// AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-// print('Running on ${androidInfo.model}');  // e.g. "Moto G (4)"
-
-// IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-// print('Running on ${iosInfo.utsname.machine}'); 

@@ -40,11 +40,10 @@ class AppRoutesBuilder {
                 ),
                 GoRoute(
                   path: CameraScreen.path,
-                  pageBuilder: (context, state) => const MaterialPage(
+                  pageBuilder: (context, state) => MaterialPage(
                     fullscreenDialog: true,
                     child: CameraScreen(),
                   ),
-                  // builder: (context, state) => const CameraScreen(),
                 ),
               ]),
         ],
